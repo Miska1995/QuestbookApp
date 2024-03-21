@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.6/pure-min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>AJAX Message</title>
+</head>
+<body>
+    <div class="container pure-form pure-form-stacked">
+        <h1>Add a New Message via AJAX</h1>
+        <form id="ajaxMessageForm">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="country" placeholder="Country" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </form>
+        <div id="ajax-messages"></div>
+    </div>
+    <script>
+        // Aseta tapahtumakuuntelija lomakkeen lähetys-toiminnolle
+        document.getElementById('ajaxMessageForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Estä lomakkeen oletuslähetys
+            const formData = new FormData(this); // Luo FormData-olio lomakkeen tiedoista
+            fetch('/ajaxmessage', { // Lähetä FormData palvelimelle POST-pyynnöllä
+                method: 'POST',
+                body: new URLSearchParams(formData), // Muunna lomakkeen tiedot URLSearchParams-olioksi
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded', // Aseta sisällön tyyppi asianmukaisesti
+                },
+            })
+            .then(response => response.json()) // Jäsennä vastaus JSON-muotoon
+            .then(entries => {
+                console.log(entries); // Voit päivittää sivun uudella merkintälistalla
+                alert('Viesti lähetetty onnistuneesti!'); // Näytä ponnahdusilmoitus onnistumisesta
+            })
+            .catch(error => {
+                console.error('Error:', error); // Kirjaa virheet konsoliin
+                alert('Viestin lähetys epäonnistui.'); // Näytä ponnahdusilmoitus virhetilanteessa
+            });
+        });
+    </script>    
+    <div class="button-container">
+        <a href="/" class="pure-button back-to-home">Back to Home</a>
+    </div>
+</body>
+</html>

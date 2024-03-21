@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Message</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.6/pure-min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container pure-form pure-form-stacked">
+        <h1>Add a New Message</h1>
+        <form action="/newmessage" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="country" placeholder="Country" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </form>
+    </div>    
+    <div class="button-container">
+        <a href="/" class="pure-button back-to-home">Back to Home</a>
+    </div>
+</body>
+</html>

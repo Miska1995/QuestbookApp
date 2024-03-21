@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/2.0.6/pure-min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Guestbook</title>
+</head>
+<body>
+    <h1>Guestbook</h1>
+    <div id="guestbook-entries"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Hae vieraskirjan merkinnät palvelimelta käyttäen /api/guestbook-endpointtia
+    fetch('/api/guestbook')
+        .then(response => response.json()) // Jäsennä vastaus JSON-muotoon
+        .then(entries => {
+            // Haetaan säiliöelementti, johon vieraskirjan merkinnät tullaan näyttämään
+            const container = document.getElementById('guestbook-entries');
+            // Käy läpi jokainen API:n kautta saatu merkintä
+            entries.forEach(entry => {
+                // Luo uusi div-elementti kullekin merkinnälle
+                const div = document.createElement('div');
+                // Aseta div-elementin sisäiseksi HTML:ksi käyttäjänimen, valitun maan ja viestin näyttämiseen
+                div.innerHTML = `<p><strong>${entry.username}</strong> From ${entry.country}: "${entry.message}"</p>`;
+                // Liitä uusi div säiliöön
+                container.appendChild(div);
+            });
+        })
+        .catch(error => console.error('Virhe ladattaessa vieraskirjan merkintöjä:', error)); // Kirjaa mahdolliset virheet konsoliin
+});
+
+    </script>
+</body>
+</html>
+

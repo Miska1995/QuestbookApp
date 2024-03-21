@@ -1,0 +1,126 @@
+/* Yleiset asettelut ja tyylit */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0c1f3; /* Vaaleampi tausta moderniin ilmeeseen */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Keskitä sisältö pystysuunnassa */
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Nollaa kaikkien elementtien marginaalit ja padding johdonmukaisuuden vuoksi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navigointipalkin tyylit */
+nav {
+    width: 30%; /* Navigoinnin täysi leveys */
+    background-color: #c790d8; /* Tummempi sävy kontrastia varten */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Lisää varjo syvyyttä varten */
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around; /* Tasaisesti jaettu tila */
+    padding: 20px 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #EAD1DC;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Sulava siirtyminen hover-efekteille */
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #AA81CB;
+    color: #564D80;
+    border-radius: 5px;
+}
+
+/* Yhteiset tyylit säiliöille */
+.container, .button-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: calc(100% - 40px); /* Varmista, että padding ei ulotu näkymän ulkopuolelle */
+    margin: 20px auto; /* Automaattiset marginaalit vaakasuuntaiseen keskitykseen */
+    text-align: center;
+}
+
+/* Lomakkeet stailattu käyttäen Pure.css:n konventioita */
+.pure-form label {
+    display: block; /* Aseta otsikot lohkoelementeiksi tasauksen vuoksi */
+    text-align: left;
+    margin: 20px 0 10px;
+}
+
+.pure-form input[type="text"],
+.pure-form textarea,
+.pure-form button {
+    width: 100%; /* Täysi leveys syötteille, tekstikentille ja napeille */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pure-form textarea {
+    height: 100px;
+    resize: vertical; /* Salli pystysuuntainen koon muuttaminen */
+}
+
+/* Pure.css napit lisätyyleillä */
+.pure-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pure-button:hover {
+    background-color: #AA81CB;
+}
+
+/* "Back to Home" napin tyylit selvää visuaalista palautetta varten */
+.back-to-home {
+    display: block;
+    width: auto;
+    padding: 8px 16px;
+    margin: 20px auto; /* Keskittää napin */
+    text-decoration: none;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #333;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-to-home:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+footer {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
