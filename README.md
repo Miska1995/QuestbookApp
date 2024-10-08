@@ -1,3 +1,4 @@
 # QuestbookApp
-Fullstack-kurssin Questbook-sovellus
-A basic questbook app, made with css,html and javascript
+Quite basic questbook app. Made with HTML, CSS, and JavaScript. 
+
+I wanted it to be as minimal as possible!
